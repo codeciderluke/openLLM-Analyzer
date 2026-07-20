@@ -27,12 +27,12 @@ lineage, fine-tuning traces, and RAG role-suitability. Every conclusion is
 
 ## Screenshots
 
-Dark and light themes (Overview tab, with an external GGUF model loaded):
+The Overview tab with an external GGUF model loaded — dark and light themes
+(toggle from the top-right button):
 
-<!-- Add screenshots under docs/ and reference them here, e.g.:
-![Dark theme](docs/screenshot-dark.png)
-![Light theme](docs/screenshot-light.png)
--->
+| Dark theme | Light theme |
+|:---:|:---:|
+| ![Dark theme](docs/screenshot-dark.png) | ![Light theme](docs/screenshot-light.png) |
 
 ## Requirements
 
