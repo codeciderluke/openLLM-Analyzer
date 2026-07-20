@@ -27,12 +27,13 @@ lineage, fine-tuning traces, and RAG role-suitability. Every conclusion is
 
 ## Screenshots
 
-The Overview tab with an external GGUF model loaded — dark and light themes
-(toggle from the top-right button):
+Connected to a live Ollama server (14 models). Left: the **Overview** tab in the
+dark theme (`qwen3:14b` metadata). Right: the **RAG** tab in the light theme
+(role-suitability scores with reasons) — toggle themes from the top-right button.
 
-| Dark theme | Light theme |
+| Overview — dark theme | RAG — light theme |
 |:---:|:---:|
-| ![Dark theme](docs/screenshot-dark.png) | ![Light theme](docs/screenshot-light.png) |
+| ![Overview tab, dark theme](docs/screenshot-dark.png) | ![RAG tab, light theme](docs/screenshot-light.png) |
 
 ## Requirements
 
