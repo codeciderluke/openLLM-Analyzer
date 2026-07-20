@@ -85,10 +85,22 @@ request-ID guard discards stale results when you switch models quickly.
 build_exe.bat            :: generates the icon and builds dist\OllamaInspector.exe
 ```
 
-This uses PyInstaller (`OllamaInspector.spec`). **Note:** the bundled executable
-includes Qt, which is used under the **LGPL-3.0**; distributing it carries LGPL
-obligations. See [THIRD_PARTY_LICENSES.md](THIRD_PARTY_LICENSES.md) before
-redistributing binaries.
+This uses PyInstaller. Two specs are provided:
+
+- `OllamaInspector.spec` — single-file `.exe` (used by `build_exe.bat`).
+- `OllamaInspector-onedir.spec` — a folder build where the Qt libraries are
+  separate files (the **LGPL-friendly** layout, recommended for redistribution):
+  `python -m PyInstaller --noconfirm OllamaInspector-onedir.spec`.
+
+**Note:** the bundled executable includes Qt, used under the **LGPL-3.0**;
+distributing it carries LGPL obligations. See
+[THIRD_PARTY_LICENSES.md](THIRD_PARTY_LICENSES.md) before redistributing binaries.
+
+## Documentation
+
+- [User Manual (PDF)](docs/UserManual.pdf) — end-user guide (regenerate with
+  `python packaging/gen_manual.py`).
+- [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) — design, data flow, analysis logic.
 
 ## Tests & lint
 
