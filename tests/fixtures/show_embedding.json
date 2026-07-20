@@ -1,0 +1,18 @@
+{
+  "modelfile": "FROM all-minilm:latest",
+  "details": {
+    "format": "gguf",
+    "family": "bert",
+    "families": ["bert"],
+    "parameter_size": "23M",
+    "quantization_level": "F16"
+  },
+  "model_info": {
+    "general.architecture": "bert",
+    "bert.context_length": 512,
+    "bert.embedding_length": 384,
+    "bert.block_count": 6,
+    "bert.attention.head_count": 12
+  },
+  "capabilities": ["embedding"]
+}

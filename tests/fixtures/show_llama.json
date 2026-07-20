@@ -1,0 +1,27 @@
+{
+  "license": "LLAMA 3.1 COMMUNITY LICENSE",
+  "modelfile": "FROM llama3.1:8b\nTEMPLATE \"\"\"{{ .Prompt }}\"\"\"\nPARAMETER temperature 0.7\nPARAMETER stop \"<|eot_id|>\"\nSYSTEM \"\"\"You are a helpful assistant.\"\"\"",
+  "parameters": "temperature 0.7\nstop \"<|eot_id|>\"",
+  "template": "{{ .Prompt }}",
+  "system": "You are a helpful assistant.",
+  "details": {
+    "format": "gguf",
+    "family": "llama",
+    "families": ["llama"],
+    "parameter_size": "8.0B",
+    "quantization_level": "Q4_K_M"
+  },
+  "model_info": {
+    "general.architecture": "llama",
+    "llama.context_length": 131072,
+    "llama.embedding_length": 4096,
+    "llama.block_count": 32,
+    "llama.feed_forward_length": 14336,
+    "llama.attention.head_count": 32,
+    "llama.attention.head_count_kv": 8,
+    "llama.vocab_size": 128256,
+    "tokenizer.ggml.tokens": ["a", "b", "c"]
+  },
+  "capabilities": ["completion", "tools"],
+  "modified_at": "2024-09-01T10:00:00Z"
+}

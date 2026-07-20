@@ -1,0 +1,18 @@
+{
+  "modelfile": "FROM llama3.1:8b\nADAPTER ./support-adapter.gguf\nPARAMETER temperature 0.2\nSYSTEM \"\"\"You are a technical support assistant.\"\"\"",
+  "template": "{{ .Prompt }}",
+  "system": "You are a technical support assistant.",
+  "details": {
+    "family": "llama",
+    "families": ["llama"],
+    "quantization_level": "Q4_K_M"
+  },
+  "model_info": {
+    "general.architecture": "llama",
+    "llama.context_length": 8192,
+    "llama.embedding_length": 4096,
+    "llama.attention.head_count": 32,
+    "llama.attention.head_count_kv": 8
+  },
+  "capabilities": ["completion"]
+}

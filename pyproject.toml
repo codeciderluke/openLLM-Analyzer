@@ -1,0 +1,77 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ollama-model-inspector"
+version = "1.0.0"
+description = "Read-only desktop GUI to inspect Ollama models: architecture, lineage, fine-tuning traces and RAG suitability."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [{ name = "The Ollama Model & RAG Inspector Authors" }]
+keywords = ["ollama", "llm", "gguf", "rag", "gui", "pyside6", "model-inspector"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: X11 Applications :: Qt",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Utilities",
+]
+dependencies = [
+    "PySide6>=6.6",
+    "httpx>=0.27",
+    "pydantic>=2",
+]
+
+[project.urls]
+Homepage = "https://github.com/codeciderluke/openLLM-Analyzer"
+Repository = "https://github.com/codeciderluke/openLLM-Analyzer"
+Issues = "https://github.com/codeciderluke/openLLM-Analyzer/issues"
+Changelog = "https://github.com/codeciderluke/openLLM-Analyzer/blob/main/CHANGELOG.md"
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8",
+    "pytest-qt>=4",
+    "ruff>=0.5",
+    "mypy>=1.8",
+    "coverage>=7",
+]
+packaging = [
+    "PyInstaller>=6",
+]
+
+[project.scripts]
+ollama-inspector = "ollama_inspector.main:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+"ollama_inspector.ui.resources" = ["*.svg"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+src = ["src", "tests"]
+# PyInstaller .spec files run with injected globals (Analysis/PYZ/EXE); skip them.
+extend-exclude = ["*.spec"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "W"]
+ignore = ["B008"]
+
+[tool.mypy]
+python_version = "3.11"
+warn_unused_ignores = true
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
