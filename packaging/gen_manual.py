@@ -25,6 +25,8 @@ HERE = Path(__file__).resolve().parent
 ROOT = HERE.parent
 SVG_PATH = ROOT / "src" / "ollama_inspector" / "ui" / "resources" / "icon.svg"
 OUT_PATH = ROOT / "docs" / "UserManual.pdf"
+SHOT_DARK = ROOT / "docs" / "screenshot-dark.png"
+SHOT_LIGHT = ROOT / "docs" / "screenshot-light.png"
 VERSION = "1.0.0"
 
 _FONTS = [
@@ -63,6 +65,13 @@ an <b>Ollama</b> server, and external <b>GGUF</b>/<b>Modelfile</b> files on disk
 It reports basic info, architecture metadata, Modelfile configuration, model
 lineage, fine-tuning traces, and RAG role-suitability. Every conclusion is
 <b>evidence-based, never guessed</b>.</p>
+
+<h2>Screenshots</h2>
+<p style="color:#555;">Connected to a live Ollama server &mdash; the Overview tab
+(dark theme):</p>
+<p><img src="shot-dark" width="640" height="407"/></p>
+<p style="color:#555;">The RAG role-suitability tab (light theme):</p>
+<p><img src="shot-light" width="640" height="407"/></p>
 
 <h2>1. Key principles</h2>
 <ul>
@@ -213,6 +222,13 @@ def main() -> None:
     doc.addResource(
         QTextDocument.ResourceType.ImageResource, QUrl("app-icon"), _icon_image()
     )
+    for name, path in (("shot-dark", SHOT_DARK), ("shot-light", SHOT_LIGHT)):
+        if path.exists():
+            doc.addResource(
+                QTextDocument.ResourceType.ImageResource,
+                QUrl(name),
+                QImage(str(path)),
+            )
     doc.setDefaultStyleSheet(
         "body{font-family:'Segoe UI',sans-serif;font-size:10.5pt;color:#1a2030;}"
         "h1{font-size:19pt;} h2{font-size:13pt;color:#2b3550;margin-top:14px;}"
